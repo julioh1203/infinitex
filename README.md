@@ -1,6 +1,6 @@
 # Infinitex
 
-A simple project to test infinite scroll using HTMX.
+A simple project to test infinite scroll using HTMX and Django.
 
 ## Project Setup
 
