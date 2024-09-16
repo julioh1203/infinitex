@@ -1,0 +1,49 @@
+[project]
+name = "infinitex"
+version = "0.0.1"
+requires-python = ">=3.11"
+authors = [
+  {name = "Julio Henrique de Oliveira", email = "julio@octaltecnologia.com.br"}
+]
+maintainers = [
+    {name = "Julio Henrique de Oliveira", email = "julio@octaltecnologia.com.br"}
+]
+description = "A simple project to test infite scroll using HTMX."
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+	"pip-tools",
+    "black",
+    "flake8",
+	"pylint",
+]
+
+[tool.setuptools_scm]
+write_to = "VERSION.txt"
+
+[tool.black]
+color = true
+line-length = 120
+target-version = ['py311', 'py312']
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = '3.12'
+show_error_codes = true
+follow_imports = 'silent'
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+warn_unused_configs = true
+disallow_subclassing_any = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true

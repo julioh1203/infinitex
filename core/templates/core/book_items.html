@@ -1,0 +1,25 @@
+{% for book in page_obj %}
+	<tr>
+		<td>{{ book.title }}</td>
+		<td>{{ book.author }}</td>
+		<td>{{ book.genre }}</td>
+		<td>{{ book.isbn }}</td>
+		<td>{{ book.description }}</td>
+		<td>{{ book.published|date:"d/m/Y" }}</td>
+	</tr>
+
+	{% if page_obj.has_next and forloop.last %}
+		<span
+				hx-get="{% url 'book-items' %}?page={{ page_obj.next_page_number }}"
+				hx-swap="beforeend"
+				hx-target="#books"
+				hx_select=".books"
+				hx-trigger="revealed"
+		>
+			</span>
+	{% endif %}
+{% empty %}
+	<tr>
+		<td class="align-middle text-center" colspan="8"></td>
+	</tr>
+{% endfor %}

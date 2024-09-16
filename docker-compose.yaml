@@ -1,0 +1,16 @@
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app/infinitex
