@@ -17,9 +17,14 @@ WORKDIR $APP_HOME
 
 # Install
 COPY . $APP_HOME
+
+RUN chown -R app:app $APP_HOME
+RUN chmod +x $APP_HOME/entrypoint.sh
+
 RUN pip install --no-cache-dir --trusted-host pypi.org --upgrade pip
 RUN pip install -r requirements.txt
 
-RUN chown -R app:app $APP_HOME
-#RUN python manage.py collectstatic --no-input --clear
+RUN python manage.py migrate
+
 USER app
+

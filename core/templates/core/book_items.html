@@ -8,6 +8,7 @@
 		<td>{{ book.published|date:"d/m/Y" }}</td>
 	</tr>
 
+	<!-- This is the infinite scroll using HTMX -->
 	{% if page_obj.has_next and forloop.last %}
 		<span
 				hx-get="{% url 'book-items' %}?page={{ page_obj.next_page_number }}"
